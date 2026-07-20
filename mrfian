@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aulia | Portfolio</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Space Grotesk',sans-serif;
+      background:#FFF7D6;
+      color:#111;
+      overflow-x:hidden;
+    }
+
+    :root{
+      --yellow:#FFD93D;
+      --blue:#57B9FF;
+      --pink:#FF5E8A;
+      --green:#70F28D;
+      --purple:#B88BFF;
+      --white:#fff;
+      --black:#111;
+    }
+
+    section{
+      width:min(1150px,92%);
+      margin:auto;
+      padding:80px 0;
+    }
+
+    h1,h2,h3{
+      font-weight:800;
+    }
+
+    p{
+      line-height:1.7;
+      font-size:1rem;
+    }
+
+    .neo{
+      border:4px solid var(--black);
+      box-shadow:8px 8px 0 var(--black);
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:var(--yellow);
+      border-bottom:4px solid #111;
+    }
+
+    .nav{
+      width:min(1150px,92%);
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 0;
+      flex-wrap:wrap;
+      gap:15px;
+    }
+
+    .logo{
+      font-size:1.6rem;
+      font-weight:800;
+      background:white;
+      padding:8px 18px;
+      border:3px solid #111;
+      box-shadow:4px 4px 0 #111;
+    }
+
+    .menu{
+      display:flex;
+      gap:15px;
+      flex-wrap:wrap;
+    }
+
+    .menu a{
+      text-decoration:none;
+      color:#111;
+      font-weight:700;
+      background:white;
+      border:3px solid #111;
+      padding:8px 16px;
+      box-shadow:4px 4px 0 #111;
+      transition:.15s;
+    }
+
+    .menu a:hover{
+      transform:translate(-3px,-3px);
+      box-shadow:7px 7px 0 #111;
+      background:var(--pink);
+      color:white;
+    }
+
+    /* HERO */
+
+    .hero{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:40px;
+      align-items:center;
+    }
+
+    .hero-text{
+      background:var(--yellow);
+      padding:40px;
+    }
+
+    .hero-text h1{
+      font-size:clamp(3rem,8vw,5.5rem);
+      line-height:0.95;
+      margin-bottom:18px;
+    }
+
+    .hero-text p{
+      margin-bottom:25px;
+      font-size:1.15rem;
+      font-weight:500;
+    }
+
+    .btn-group{
+      display:flex;
+      flex-wrap:wrap;
+      gap:15px;
+    }
+
+    .btn{
+      border:4px solid #111;
+      text-decoration:none;
+      font-weight:800;
+      padding:14px 24px;
+      box-shadow:6px 6px 0 #111;
+      transition:.15s;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:var(--pink);
+      color:white;
+    }
+
+    .btn-secondary{
+      background:white;
+      color:#111;
+    }
+
+    .btn:hover{
+      transform:translate(-4px,-4px);
+      box-shadow:10px 10px 0 #111;
+    }
+
+    .hero-image{
+      background:var(--blue);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      padding:40px;
+      text-align:center;
+    }
+
+    .avatar{
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      border:4px solid #111;
+      background:white;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:70px;
+      font-weight:800;
+      box-shadow:6px 6px 0 #111;
+      margin-bottom:20px;
+    }
+
+    /* TITLE */
+
+    .title{
+      display:inline-block;
+      background:white;
+      padding:12px 22px;
+      border:4px solid #111;
+      box-shadow:6px 6px 0 #111;
+      margin-bottom:30px;
+      font-size:2rem;
+    }
+
+    /* ABOUT */
+
+    .about{
+      background:var(--green);
+      padding:35px;
+    }
+
+    /* SKILLS */
+
+    .skills-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:20px;
+    }
+
+    .skill{
+      background:var(--purple);
+      text-align:center;
+      padding:30px;
+      cursor:pointer;
+      transition:.15s;
+    }
+
+    .skill h3{
+      margin-bottom:10px;
+    }
+
+    /* PROJECT */
+
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:white;
+      padding:25px;
+      transition:.15s;
+      cursor:pointer;
+    }
+
+    .preview{
+      height:150px;
+      background:var(--yellow);
+      border:4px solid #111;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:55px;
+      margin-bottom:18px;
+    }
+
+    .card h3{
+      margin-bottom:10px;
+    }
+
+    .tag{
+      display:inline-block;
+      margin-top:15px;
+      padding:8px 14px;
+      border:3px solid #111;
+      background:var(--pink);
+      color:white;
+      font-weight:700;
+      box-shadow:4px 4px 0 #111;
+    }
+
+    /* CONTACT */
+
+    .contact{
+      background:var(--blue);
+      padding:35px;
+    }
+
+    .contact-grid{
+      margin-top:25px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px;
+    }
+
+    .contact-box{
+      background:white;
+      padding:20px;
+      border:3px solid #111;
+      box-shadow:4px 4px 0 #111;
+    }
+
+    footer{
+      margin-top:70px;
+      padding:25px;
+      background:var(--yellow);
+      border-top:4px solid #111;
+      text-align:center;
+      font-weight:700;
+    }
+
+    @media(max-width:900px){
+      .hero{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:600px){
+
+      .hero-text{
+        padding:25px;
+      }
+
+      .hero-image{
+        padding:25px;
+      }
+
+      .avatar{
+        width:140px;
+        height:140px;
+        font-size:50px;
+      }
+
+      .title{
+        font-size:1.6rem;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<nav>
+  <div class="nav">
+    <div class="logo">AULIA</div>
+
+    <div class="menu">
+      <a href="#about">Tentang</a>
+      <a href="#skills">Skill</a>
+      <a href="#portfolio">Proyek</a>
+      <a href="#contact">Kontak</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+
+  <div class="hero-text neo">
+
+    <h1>Halo!<br>Saya Aulia</h1>
+
+    <p>
+      Saya adalah seorang web developer yang senang membuat website
+      modern, responsif, dan memiliki tampilan unik dengan gaya
+      <b>Neo-Brutalism</b>.
+    </p>
+
+    <div class="btn-group">
+      <a href="#portfolio" class="btn btn-primary">Lihat Portofolio</a>
+      <a href="#contact" class="btn btn-secondary">Hubungi Saya</a>
+    </div>
+
+  </div>
+
+  <div class="hero-image neo">
+
+    <div class="avatar">
+      A
+    </div>
+
+    <h2>Creative Developer</h2>
+
+    <p>HTML • CSS • JavaScript</p>
+
+  </div>
+
+</section>
+
+<section id="about">
+
+  <div class="title">Tentang Saya</div>
+
+  <div class="about neo">
+
+    <p>
+      Halo! Saya <b>Aulia</b>, seorang pengembang web yang memiliki minat
+      dalam membangun website modern, cepat, responsif, dan mudah digunakan.
+      Saya menyukai desain yang berani, sederhana, namun tetap menarik secara visual.
+    </p>
+
+    <br>
+
+    <p>
+      Saya terus belajar teknologi terbaru serta senang mengembangkan
+      website portofolio, landing page, dashboard, maupun aplikasi web
+      menggunakan HTML, CSS, dan JavaScript.
+    </p>
+
+  </div>
+
+</section>
+
+<section id="skills">
+
+  <div class="title">Skill & Keahlian</div>
+
+  <div class="skills-grid">
+
+    <div class="skill neo">
+      <h3>HTML5</h3>
+      <p>Semantic Website</p>
+    </div>
+
+    <div class="skill neo">
+      <h3>CSS3</h3>
+      <p>Responsive Design</p>
+    </div>
+
+    <div class="skill neo">
+      <h3>JavaScript</h3>
+      <p>Interactive Website</p>
+    </div>
+
+    <div class="skill neo">
+      <h3>UI Design</h3>
+      <p>Modern Layout</p>
+    </div>
+
+    <div class="skill neo">
+      <h3>Responsive</h3>
+      <p>Mobile Friendly</p>
+    </div>
+
+    <div class="skill neo">
+      <h3>Creative</h3>
+      <p>Problem Solving</p>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="portfolio">
+
+  <div class="title">Proyek Portofolio</div>
+
+  <div class="projects">
+
+    <div class="card neo">
+      <div class="preview">💻</div>
+      <h3>Website Company Profile</h3>
+      <p>Website perusahaan modern dengan desain profesional.</p>
+      <div class="tag">HTML & CSS</div>
+    </div>
+
+    <div class="card neo">
+      <div class="preview">📱</div>
+      <h3>Landing Page</h3>
+      <p>Landing page produk dengan tampilan responsif.</p>
+      <div class="tag">Responsive</div>
+    </div>
+
+    <div class="card neo">
+      <div class="preview">🚀</div>
+      <h3>Dashboard Admin</h3>
+      <p>Dashboard sederhana menggunakan JavaScript.</p>
+      <div class="tag">JavaScript</div>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="contact">
+
+  <div class="title">Kontak</div>
+
+  <div class="contact neo">
+
+    <p>
+      Tertarik bekerja sama atau ingin berdiskusi mengenai proyek?
+      Silakan hubungi saya melalui informasi berikut.
+    </p>
+
+    <div class="contact-grid">
+
+      <div class="contact-box">
+        <h3>Email</h3>
+        <p>aulia@email.com</p>
+      </div>
+
+      <div class="contact-box">
+        <h3>Instagram</h3>
+        <p>@aulia.dev</p>
+      </div>
+
+      <div class="contact-box">
+        <h3>GitHub</h3>
+        <p>github.com/aulia</p>
+      </div>
+
+      <div class="contact-box">
+        <h3>Lokasi</h3>
+        <p>Indonesia</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+  © 2026 • Dibuat oleh <b>Aulia</b> menggunakan HTML, CSS & JavaScript
+</footer>
+
+<script>
+
+const cards=document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+
+card.addEventListener("mouseenter",()=>{
+
+card.style.transform="translate(-6px,-6px)";
+card.style.boxShadow="14px 14px 0 #111";
+card.style.background="#FFD93D";
+
+});
+
+card.addEventListener("mouseleave",()=>{
+
+card.style.transform="";
+card.style.boxShadow="";
+card.style.background="white";
+
+});
+
+});
+
+const skills=document.querySelectorAll(".skill");
+
+skills.forEach(skill=>{
+
+skill.addEventListener("click",()=>{
+
+skill.style.transform="scale(1.06) rotate(-2deg)";
+
+setTimeout(()=>{
+
+skill.style.transform="";
+
+},180);
+
+});
+
+});
+
+const buttons=document.querySelectorAll(".btn");
+
+buttons.forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+btn.textContent="✔ Dibuka";
+
+setTimeout(()=>{
+
+if(btn.classList.contains("btn-primary")){
+btn.textContent="Lihat Portofolio";
+}else{
+btn.textContent="Hubungi Saya";
+}
+
+},900);
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
